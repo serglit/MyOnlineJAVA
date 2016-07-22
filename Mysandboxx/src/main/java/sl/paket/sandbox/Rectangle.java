@@ -10,5 +10,9 @@ public class Rectangle {
         this.a = a;
         this.b = b;
     }
+    public double area1 () {
+        return this.a * this.b;
+    }
+
 
 }

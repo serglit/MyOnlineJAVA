@@ -10,4 +10,8 @@ public class Square {
         this.l=l;
 
     }
+    public double area2 () {
+        return this.l*this.l;
+
+    }
 }

@@ -8,8 +8,8 @@ public class Myprog {
 
       Rectangle r = new Rectangle(6,7);
 
-      System.out.println("Area rectangle ="+ area1(r));
-      System.out.println("Area square ="+ area2(s));
+      System.out.println("Area rectangle ="+ r.area1());
+      System.out.println("Area square ="+ s.area2());
 
   }
     public static void hello (String whoUare) {
@@ -17,13 +17,8 @@ public class Myprog {
 
  }
 
-    public static double area1 (Rectangle r) {
-        return r.a * r.b;
-    }
-    public static double area2 (Square s) {
-        return s.l*s.l;
 
-    }
+
 
 
 
