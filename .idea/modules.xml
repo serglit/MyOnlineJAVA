@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MyOnlineJAVA.iml" filepath="$PROJECT_DIR$/.idea/MyOnlineJAVA.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mysandboxx.iml" filepath="$PROJECT_DIR$/.idea/modules/Mysandboxx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addressbook-web-tests/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/addressbook-web-tests/addressbook-web-tests.iml" />
     </modules>
   </component>
 </project>
