@@ -1,17 +1,3 @@
 apply plugin: 'java'
 apply plugin: 'application'
 mainClassName = "Myprog"
-
-
-repository
-
-dependencies {
-
-
-    // https://mvnrepository.com/artifact/org.testng/testng
-    compile 'org.testng:testng:6.9.10'
-
-
-
-
-}
