@@ -3,9 +3,7 @@ apply plugin: 'application'
 mainClassName = "Myprog"
 
 
-repositories {
-    mavenCentral()
-}
+repository
 
 dependencies {
 
