@@ -1,4 +1,4 @@
-package sl.paket.addressbook;
+package sl.paket.addressbook.model;
 
 public class GroupData {
     private final String name;
