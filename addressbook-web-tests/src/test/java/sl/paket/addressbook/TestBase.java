@@ -80,8 +80,9 @@ public class TestBase {
     }
 
     protected void selectGroup() {
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/span[2]/input")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/span[2]/input")).click();
+        if (!wd.findElement(By.xpath("//div[@id='content']/form/span[1]/input")).isSelected()) {
+            wd.findElement(By.xpath("//div[@id='content']/form/span[1]/input")).click();
+            System.out.println("No available group for delete");
         }
     }
 }
