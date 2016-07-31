@@ -80,9 +80,51 @@ public class TestBase {
     }
 
     protected void selectGroup() {
-        if (!wd.findElement(By.xpath("//div[@id='content']/form/span[1]/input")).isSelected()) {
-            wd.findElement(By.xpath("//div[@id='content']/form/span[1]/input")).click();
-            System.out.println("No available group for delete");
+        wd.findElementByName("selected[]").click();
         }
+
+
+    protected void submitForm() {
+        wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
+    }
+
+    protected void fillUpTextFields(ContactData contactData) {
+        wd.findElement(By.name("firstname")).click();
+        wd.findElement(By.name("firstname")).clear();
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
+        wd.findElement(By.name("lastname")).click();
+        wd.findElement(By.name("lastname")).clear();
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+        wd.findElement(By.name("title")).click();
+        wd.findElement(By.name("company")).click();
+        wd.findElement(By.name("company")).clear();
+        wd.findElement(By.name("company")).sendKeys(contactData.getCompanyName());
+        wd.findElement(By.name("address")).click();
+        wd.findElement(By.name("address")).clear();
+        wd.findElement(By.name("address")).sendKeys(contactData.getAddressName());
+        wd.findElement(By.name("home")).click();
+        wd.findElement(By.name("home")).clear();
+        wd.findElement(By.name("home")).sendKeys(contactData.getPhoneNumber());
+        wd.findElement(By.name("work")).click();
+        wd.findElement(By.name("email")).click();
+        wd.findElement(By.name("email")).clear();
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmailAddress());
+    }
+
+    protected void newContactOpen() {
+        wd.findElement(By.linkText("add new")).click();
+    }
+
+    protected void gotoHomepage() {
+        wd.findElement(By.id("content")).click();
+        wd.findElement(By.linkText("home")).click();
+    }
+
+    protected void deleteContact() {
+        wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
+    }
+
+    protected void selectContact() {
+        wd.findElementByName("selected[]").click();
     }
 }
