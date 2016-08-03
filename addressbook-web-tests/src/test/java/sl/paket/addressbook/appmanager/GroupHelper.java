@@ -7,7 +7,7 @@ import sl.paket.addressbook.model.GroupData;
 /**
  * Created by serglit on 31.07.16.
  */
-public class GroupHelper extends HelperBase{
+public class GroupHelper extends HelperBase {
 
     public GroupHelper(FirefoxDriver wd) {
         super(wd);
@@ -36,8 +36,8 @@ public class GroupHelper extends HelperBase{
     }
 
     public void selectGroup() {
-        wd.findElementByName("selected[]").click();
-        }
+        click(By.name("selected[]"));
+    }
 
     public void initGroupModification() {
         click(By.name("edit"));
@@ -45,6 +45,6 @@ public class GroupHelper extends HelperBase{
 
     public void submitGroupModification() {
         click(By.name("update"));
-
     }
+
 }
