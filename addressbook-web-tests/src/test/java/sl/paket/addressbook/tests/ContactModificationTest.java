@@ -12,7 +12,7 @@ public class ContactModificationTest extends TestBase {
         app.getNavigationHelper().returnToContactPage();
         app.getContactHelper().selectContact();
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillUpTextFields(new ContactData("FirstName", "LastName", "ABC", "123 NewGampshir", "123-4560000","098-234-34-45", "third@mail.com"));
+        app.getContactHelper().fillUpTextFields(new ContactData("FirstName", "LastName", "ABC", "123 NewGampshir", "123-4560000","098-234-34-45", "third@mail.com", null),false);
         app.getContactHelper().submitForm();
     }
 

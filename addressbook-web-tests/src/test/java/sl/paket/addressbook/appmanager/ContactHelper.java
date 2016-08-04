@@ -2,7 +2,8 @@ package sl.paket.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import sl.paket.addressbook.model.ContactData;
 
 /**
@@ -14,7 +15,7 @@ public class ContactHelper extends HelperBase {
     super(wd);
     }
 
-    public void fillUpTextFields(ContactData contactData) {
+    public void fillUpTextFields(ContactData contactData, Boolean creation) {
         type(By.name("firstname"), contactData.getFirstName());
         type(By.name("lastname"), contactData.getLastName());
         type(By.name("company"), contactData.getCompanyName());
@@ -22,8 +23,13 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getPhoneNumber());
         type(By.name("work"), contactData.getWorkPhone());
         type(By.name("email"), contactData.getEmailAddress());
-    }
 
+        if (creation) {
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        }else {
+        Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+    }
     public void newContactOpen() {
         click(By.linkText("add new"));
     }
