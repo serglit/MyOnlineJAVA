@@ -2,7 +2,6 @@ package sl.paket.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import sl.paket.addressbook.model.GroupData;
 
 /**
@@ -55,7 +54,12 @@ public class GroupHelper extends HelperBase {
         returnToGroupPage();
     }
 
-    public boolean isThereAnyGroup() {
+    public boolean isThereAnyGroup()
+    {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public int getGroupCount() {
+        return  wd.findElements(By.name("selected[]")).size();
     }
 }
