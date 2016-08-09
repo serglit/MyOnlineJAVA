@@ -4,24 +4,33 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import sl.paket.addressbook.model.GroupData;
 
+import java.util.HashSet;
+import java.util.List;
+
 /**
  * Created by serglit on 31.07.16.
  */
-public class GroupModificationTests extends TestBase{
+public class GroupModificationTests extends TestBase {
     @Test
-    public void testGroupModification(){
+    public void testGroupModification() {
 
         app.getNavigationHelper().goToGroupPage();
-        if (! app.getGroupHelper().isThereAnyGroup()){
+        if (!app.getGroupHelper().isThereAnyGroup()) {
             app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
         }
-        int before = app.getGroupHelper().getGroupCount();
-        app.getGroupHelper().selectGroup();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+        app.getGroupHelper().selectGroup(before.size() - 1);
         app.getGroupHelper().initGroupModification();
-        app.getGroupHelper().fillupGroupForm(new GroupData("MynewGroup3", "Header_Group", "Footer_Group"));
+        GroupData group = new GroupData("MynewGroup3", "Header_Group", "Footer_Group");
+        app.getGroupHelper().fillupGroupForm(group);
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupPage();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before );
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size());
+
+
+        before.remove(before.size() - 1);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }
