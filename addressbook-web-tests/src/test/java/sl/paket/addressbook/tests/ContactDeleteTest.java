@@ -11,7 +11,7 @@ public class ContactDeleteTest extends TestBase{
 
         app.getNavigationHelper().returnToContactPage();
         if (! app.getContactHelper().isThereAnyContact()) {
-            app.getContactHelper().createTestContact(new ContactData("First", "Last", "ZYX", "123 Blossom ave", null, null, null,null));
+            app.getContactHelper().createTestContact(new ContactData(1,"First", "Last", "ZYX", "123 Blossom ave", null, null, null,null));
         }
         app.getContactHelper().selectContact();
         app.getContactHelper().deleteContact();

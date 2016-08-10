@@ -2,9 +2,14 @@ package sl.paket.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import sl.paket.addressbook.model.ContactData;
+import sl.paket.addressbook.model.GroupData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by serglit on 02.08.16.
@@ -59,5 +64,17 @@ public class ContactHelper extends HelperBase {
     }
     public boolean isThereAnyContact() {
         return isElementPresent(By.name("selected[]"));
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List<WebElement> elements = wd.findElements(By.cssSelector("id"));
+        for (WebElement element : elements) {
+            String name = element.getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
+            ContactData contact = new ContactData(id , null, null, null,null,null,null,null,null);
+            contacts.add(contact);
+        }
+        return contacts;
     }
 }
