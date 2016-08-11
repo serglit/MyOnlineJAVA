@@ -1,7 +1,5 @@
 package sl.paket.addressbook.model;
 
-import java.util.stream.Stream;
-
 public class GroupData {
 
     private int id;

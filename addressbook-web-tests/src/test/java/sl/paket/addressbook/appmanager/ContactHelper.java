@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import sl.paket.addressbook.model.ContactData;
-import sl.paket.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,11 +67,10 @@ public class ContactHelper extends HelperBase {
 
     public List<ContactData> getContactList() {
         List<ContactData> contacts = new ArrayList<ContactData>();
-        List<WebElement> elements = wd.findElements(By.cssSelector("id"));
+        List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
         for (WebElement element : elements) {
-            String name = element.getText();
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
-            ContactData contact = new ContactData(id , null, null, null,null,null,null,null,null);
+            ContactData contact = new ContactData( "First", "Last", "Company",null,null,null,null,null);
             contacts.add(contact);
         }
         return contacts;

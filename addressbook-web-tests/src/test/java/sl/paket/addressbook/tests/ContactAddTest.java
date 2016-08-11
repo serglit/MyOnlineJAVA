@@ -15,16 +15,15 @@ public class ContactAddTest extends TestBase {
 
         app.getNavigationHelper().returnToContactPage();
         List<ContactData> before = app.getContactHelper().getContactList();
-        ContactData contact = new ContactData(0, "First", "Last", "ZYX", "123 Blossom ave",
-                "123-456-7890", "second@mail.org", "098-234-4667", "MynewGroup3");
         app.getContactHelper().newContactOpen();
+        ContactData contact = new ContactData("First", "Last", "ZYX", "123 Blossom ave",
+                null, null, null, "MynewGroup2");
         app.getContactHelper().fillUpTextFields(contact, true);
-
         app.getContactHelper().submitForm();
-        List<ContactData> after = app.getContactHelper().getContactList();
         app.getNavigationHelper().returnToContactPage();
+        List<ContactData> after = app.getContactHelper().getContactList();
 
-
+        before.add(contact);
         Comparator<? super ContactData> ById = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
         before.sort(ById);
         after.sort(ById);
