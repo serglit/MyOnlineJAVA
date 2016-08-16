@@ -1,12 +1,23 @@
 package sl.paket.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sl.paket.addressbook.model.GroupData;
 
 import java.util.List;
 
 public class GroupDeleteTest extends TestBase {
+
+    @BeforeMethod
+    public void ensurePreconditions(){
+
+        app.getNavigationHelper().goToGroupPage();
+        if (!app.getGroupHelper().isThereAnyGroup()) {
+            app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
+        }
+    }
+    
 
     @Test
     public void testGroupDeletion() {
