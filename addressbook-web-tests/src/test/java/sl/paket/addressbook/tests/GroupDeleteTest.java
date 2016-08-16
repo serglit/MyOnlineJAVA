@@ -17,7 +17,7 @@ public class GroupDeleteTest extends TestBase {
             app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
         }
     }
-    
+
 
     @Test
     public void testGroupDeletion() {

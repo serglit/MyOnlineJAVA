@@ -1,6 +1,7 @@
 package sl.paket.addressbook.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sl.paket.addressbook.model.ContactData;
 
@@ -11,13 +12,18 @@ import java.util.List;
  * Created by serglit on 31.07.16.
  */
 public class ContactModificationTest extends TestBase {
+
+   @BeforeMethod
+   public void ensurePrecondContact() {
+       app.getNavigationHelper().returnToContactPage();
+       if (!app.getContactHelper().isThereAnyContact()) {
+           app.getContactHelper().createTestContact(new ContactData("First", "Last", "ZYX", "123 Blossom ave", null, null, null, null));
+       }
+   }
+
     @Test
     public void testContactModification() {
-        app.getNavigationHelper().returnToContactPage();
 
-        if (!app.getContactHelper().isThereAnyContact()) {
-            app.getContactHelper().createTestContact(new ContactData( "First", "Last", "ZYX", "123 Blossom ave", null, null, null, null));
-        }
         List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().selectContact();
         app.getContactHelper().initContactModification();
