@@ -17,7 +17,7 @@ public class ContactModificationTest extends TestBase {
    public void ensurePrecondContact() {
        app.goTo().contactPage();
        if (!app.contact().isThereAnyContact()) {
-           app.contact().create(new ContactData("First", "Last", "ZYX", "123 Blossom ave", null, null, null, null));
+           app.contact().create(new ContactData().withFirstName("First").withLastName( "Last").withCompanyName("ZYX").withAddressName("123 Blossom ave"));
        }
    }
 
@@ -25,9 +25,11 @@ public class ContactModificationTest extends TestBase {
     public void testContactModification() {
 
         List<ContactData> before = app.contact().list();
+        int index = before.size()-1;
         app.contact().select();
         app.contact().initModify();
-        ContactData contact = new ContactData("FirstName", "LastName", "ABC","23252 Highway street", null, null, null, null);
+        ContactData contact = new ContactData().withId(before.get(index).getId()).withFirstName("Firstest").withLastName( "Lastest").withCompanyName("uweyrtw").withAddressName("345 Holiday street")
+                .withEmailAddress("sdkjfhskdf@wityu.com").withPhoneNumber("234-9987888").withWorkPhone("987-12331231");
         app.contact().fillUpTextFields(contact, false);
         app.contact().submitForm();
         app.goTo().contactPage();

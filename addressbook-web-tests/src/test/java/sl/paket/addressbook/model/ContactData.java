@@ -1,30 +1,62 @@
 package sl.paket.addressbook.model;
 
 public class ContactData {
-    private  int id;
-    private final String firstName;
-    private final String lastName;
-    private final String companyName;
-    private final String addressName;
-    private final String phoneNumber;
-    private final String emailAddress;
-    private final String workPhone;
-    private String group;
+    private  int id= Integer.MAX_VALUE;
+    private  String firstName;
+    private  String lastName;
+    private  String companyName;
+    private  String addressName;
+    private  String phoneNumber;
+    private  String emailAddress;
+    private  String workPhone;
+    private  String group;
 
 
-
-    public ContactData(String firstName, String lastName, String companyName, String addressName, String phoneNumber, String emailAddress, String workPhone, String group) {
-        this.id = Integer.MAX_VALUE;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.companyName = companyName;
-        this.addressName = addressName;
-        this.phoneNumber = phoneNumber;
-        this.emailAddress = emailAddress;
-        this.workPhone = workPhone;
-        this.group = group;
-
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
+
+    public ContactData withFirstName(String firstName) {
+        this.firstName = firstName;
+        return this;
+    }
+
+    public ContactData withLastName(String lastName) {
+        this.lastName = lastName;
+        return this;
+    }
+
+    public ContactData withCompanyName(String companyName) {
+        this.companyName = companyName;
+        return this;
+    }
+
+    public ContactData withAddressName(String addressName) {
+        this.addressName = addressName;
+        return this;
+    }
+
+    public ContactData withPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+        return this;
+    }
+
+    public ContactData withEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+        return this;
+    }
+
+    public ContactData withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
+        this.group = group;
+        return this;
+    }
+
 
     public String getFirstName() {
         return firstName;
