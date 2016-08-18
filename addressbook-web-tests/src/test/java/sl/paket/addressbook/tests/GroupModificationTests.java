@@ -1,13 +1,11 @@
 package sl.paket.addressbook.tests;
 
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import sl.paket.addressbook.model.GroupData;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -18,9 +16,9 @@ public class GroupModificationTests extends TestBase {
    @BeforeMethod
    public void ensurePreconditions(){
 
-       app.getNavigationHelper().goToGroupPage();
-       if (!app.getGroupHelper().isThereAnyGroup()) {
-           app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
+       app.goTo().groupPage();
+       if (!app.group().isThereAnyGroup()) {
+           app.group().create(new GroupData().withName("TestGroup"));
        }
    }
 
@@ -28,11 +26,12 @@ public class GroupModificationTests extends TestBase {
     @Test
     public void testGroupModification() {
 
-        List<GroupData> before = app.getGroupHelper().getGroupList();
+        List<GroupData> before = app.group().list();
         int index = before.size()-1;
-        GroupData group = new GroupData(before.get(index).getId(),"MynewGroup2", "Header_Group", "Footer_Group");
-        app.getGroupHelper().modifyGroup(index, group);
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        GroupData group = new GroupData().withId(before.get(index).getId())
+                .withName("MynewGroup2").withHeader("Header_Group").withFooter("Footer_Group");
+        app.group().modify(index, group);
+        List<GroupData> after = app.group().list();
 
         Assert.assertEquals(after.size(), before.size());
 

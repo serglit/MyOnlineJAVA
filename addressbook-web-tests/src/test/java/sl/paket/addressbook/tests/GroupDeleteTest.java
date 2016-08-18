@@ -12,32 +12,33 @@ public class GroupDeleteTest extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
 
-        app.getNavigationHelper().goToGroupPage();
-        if (!app.getGroupHelper().isThereAnyGroup()) {
-            app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
+        app.goTo().groupPage();
+        if (!app.group().isThereAnyGroup()) {
+            app.group().create(new GroupData().withName("TestGroup"));
         }
     }
 
 
     @Test
     public void testGroupDeletion() {
-        app.getNavigationHelper().goToGroupPage();
-        if (! app.getGroupHelper().isThereAnyGroup()){
-            app.getGroupHelper().createTestGroup(new GroupData("TestGroup", "HeaderTestGroup", "FooterTestyGroup"));
+        app.goTo().groupPage();
+        if (! app.group().isThereAnyGroup()){
+            app.group().create(new GroupData().withName("TestGroup"));
         }
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-        app.getGroupHelper().selectGroup(before.size()-1);
-        app.getGroupHelper().deleteSelectedGroup();
-        app.getGroupHelper().returnToGroupPage();
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> before = app.group().list();
+        int index = before.size()-1;
+        app.group().delete(index);
+        List<GroupData> after = app.group().list();
         Assert.assertEquals(after.size(), before.size() - 1);
 
-        before.remove(before.size()-1);
+        before.remove(index);
        // for (int i=0; i < after.size();i++){ // 1 вариант проверки списка с использ.цикла
        //     Assert.assertEquals(before.get(i), after.get(i));
         Assert.assertEquals(before, after); // 2 вариант проверки списков
         }
-    }
+
+
+}
 
 
     

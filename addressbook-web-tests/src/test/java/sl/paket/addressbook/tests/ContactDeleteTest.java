@@ -8,17 +8,17 @@ public class ContactDeleteTest extends TestBase{
 
     @BeforeMethod
     public void ensurePrecondContact() {
-        app.getNavigationHelper().returnToContactPage();
-        if (!app.getContactHelper().isThereAnyContact()) {
-            app.getContactHelper().createTestContact(new ContactData("First", "Last", "ZYX", "123 Blossom ave", null, null, null, null));
+        app.goTo().contactPage();
+        if (!app.contact().isThereAnyContact()) {
+            app.contact().create(new ContactData("First", "Last", "ZYX", "123 Blossom ave", null, null, null, null));
         }
     }
     
     @Test
     public void contactDeleteTest() {
 
-        app.getContactHelper().selectContact();
-        app.getContactHelper().deleteContact();
-        app.getNavigationHelper().returnToContactPage();
+        app.contact().select();
+        app.contact().delete();
+        app.goTo().contactPage();
     }
 }
