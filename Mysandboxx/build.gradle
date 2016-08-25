@@ -5,5 +5,7 @@ apply plugin: 'java'
  }
 dependencies {
     compile 'org.testng:testng:6.9.10'
+    compile 'org.hamcrest:java-hamcrest:2.0.0.0'
+
 
 }

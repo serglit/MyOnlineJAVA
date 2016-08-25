@@ -1,12 +1,12 @@
 package sl.paket.addressbook.tests;
 
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import sl.paket.addressbook.model.GroupData;
+import sl.paket.addressbook.model.Groups;
 
-import java.util.Comparator;
-import java.util.List;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 
 public class GroupCreationTest extends TestBase {
@@ -15,24 +15,13 @@ public class GroupCreationTest extends TestBase {
     public void groupCreateTest() {
 
         app.goTo().groupPage();
-        List<GroupData> before = app.group().list();
+        Groups before = app.group().all();
         GroupData group = new GroupData().withName("MynewGroup2");
         app.group().create(group);
-        List<GroupData> after = app.group().list();
+        Groups after = app.group().all();
+        assertThat(after.size(), equalTo(before.size() + 1));
 
-
-    //    Assert.assertEquals(after.size(), before.size() + 1);
-   //     int max = 0;
-   //     for (GroupData g : after){    1  способ сравнения
-   //         if(g.getId()>max){
-   //             max=g.getId();
-   //         }
-        //    group.setId(after.stream().max((o1,o2)-> Integer.compare(o1.getId(),o2.getId())).get().getId());
-        before.add(group);
-        Comparator<? super GroupData> ById = (g1, g2)-> Integer.compare(g1.getId(),g2.getId());
-        before.sort(ById);
-        after.sort(ById);
-        Assert.assertEquals(before,after);
+        assertThat(after, equalTo(before.withAdded(group.withId(after.stream().mapToInt((g)-> g.getId()).max().getAsInt()))));
     }
 
     }
