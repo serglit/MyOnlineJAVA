@@ -15,7 +15,6 @@ public class Contacts  extends ForwardingSet<ContactData> {
     public Contacts(Contacts contacts) {
         this.delegate = new HashSet<>(contacts.delegate);
     }
-
     public Contacts() {
         this.delegate = new HashSet<>();
     }
