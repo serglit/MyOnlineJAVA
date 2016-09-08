@@ -22,6 +22,7 @@ public class ContactAddTest extends TestBase {
                 .withPhoneMobile("+798728734812341")
                 .withPhoneWork("800992929393")
                 .withEmailAddress("newemail@postoffice.com");
+
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()+1));
         Contacts after = app.contact().alll();
