@@ -114,16 +114,14 @@ public class ContactHelper extends HelperBase {
             String nameFirst = cells.get(2).getText();
             String address = cells.get(3).getText();
             String email = cells.get(4).getText();
-            String[] phones = cells.get(5).getText().split("\n");
+            String  allPhones = cells.get(5).getText();
             contacts.add(new ContactData()
                     .withId(id)
                     .withLastName(nameLast)
                     .withFirstName(nameFirst)
                     .withAddressName(address)
                     .withEmailAddress(email)
-                    .withPhoneHome(phones[0])
-                    .withPhoneMobile(phones[1])
-                    .withPhoneWork(phones[2]));
+                    .withAllPhones(allPhones));
         }
         return new Contacts(contacts);
     }
@@ -143,8 +141,8 @@ public class ContactHelper extends HelperBase {
             String nameFirst = cells.get(2).getText();
             String address = cells.get(3).getText();
             String email = cells.get(4).getText();
-            String[] phones = cells.get(5).getText().split("\n");
-
+           // String[] phones = cells.get(5).getText().split("\n");
+            String  allPhones = cells.get(5).getText();
 
 
             contactCache.add(new ContactData()
@@ -153,11 +151,12 @@ public class ContactHelper extends HelperBase {
                     .withFirstName(nameFirst)
                     .withAddressName(address)
                     .withEmailAddress(email)
-                    .withPhoneHome(phones[0])
-                    .withPhoneMobile(phones[1])
-                    .withPhoneWork(phones[2]));
+                   // .withPhoneHome(phones[0])
+                   // .withPhoneMobile(phones[1])
+                  //  .withPhoneWork(phones[2]))
+                    .withAllPhones(allPhones));;
         }
-            return new Contacts(contactCache);
+             return new Contacts(contactCache);
         }
 
         public int count () {

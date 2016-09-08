@@ -9,8 +9,7 @@ public class ContactData {
     private String phoneMobile;
     private String phoneWork;
     private String emailAddress;
-
-
+    private String allPhones;
 
     @Override
     public boolean equals(Object o) {
@@ -26,7 +25,8 @@ public class ContactData {
         if (phoneHome != null ? !phoneHome.equals(that.phoneHome) : that.phoneHome != null) return false;
         if (phoneMobile != null ? !phoneMobile.equals(that.phoneMobile) : that.phoneMobile != null) return false;
         if (phoneWork != null ? !phoneWork.equals(that.phoneWork) : that.phoneWork != null) return false;
-        return emailAddress != null ? emailAddress.equals(that.emailAddress) : that.emailAddress == null;
+        if (emailAddress != null ? !emailAddress.equals(that.emailAddress) : that.emailAddress != null) return false;
+        return allPhones != null ? allPhones.equals(that.allPhones) : that.allPhones == null;
 
     }
 
@@ -40,6 +40,7 @@ public class ContactData {
         result = 31 * result + (phoneMobile != null ? phoneMobile.hashCode() : 0);
         result = 31 * result + (phoneWork != null ? phoneWork.hashCode() : 0);
         result = 31 * result + (emailAddress != null ? emailAddress.hashCode() : 0);
+        result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
         return result;
     }
 
@@ -54,6 +55,7 @@ public class ContactData {
                 ", phoneMobile='" + phoneMobile + '\'' +
                 ", phoneWork='" + phoneWork + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
+                ", allPhones='" + allPhones + '\'' +
                 '}';
     }
 
@@ -72,7 +74,6 @@ public class ContactData {
         this.lastName = lastName;
         return this;
     }
-
 
     public ContactData withAddressName(String addressName) {
         this.addressName = addressName;
@@ -96,6 +97,13 @@ public class ContactData {
         return this;
     }
 
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+    public int getId() {
+        return id;
+    }
     public String getFirstName() {
         return firstName;
     }
@@ -115,10 +123,7 @@ public class ContactData {
     public String getEmailAddress() {
         return emailAddress;
     }
-    public int getId() {
-        return id;
-    }
-
+    public String getAllPhones() {return allPhones;}
 
 }
 
