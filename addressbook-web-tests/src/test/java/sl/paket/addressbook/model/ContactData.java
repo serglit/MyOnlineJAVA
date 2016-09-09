@@ -1,5 +1,7 @@
 package sl.paket.addressbook.model;
 
+import java.io.File;
+
 public class ContactData {
     private int id = Integer.MAX_VALUE;
     private String firstName;
@@ -9,10 +11,21 @@ public class ContactData {
     private String phoneMobile;
     private String phoneWork;
     private String emailAddress;
+
+    public File getPhoto() {
+        return photo;
+    }
+
+    public ContactData withPhoto (File photo) {
+        this.photo = photo;
+        return this;
+    }
+
     private String emailAddress1;
     private String emailAddress2;
     private String allPhones;
     private String allEmails;
+    private File photo;
 
     @Override
     public boolean equals(Object o) {
