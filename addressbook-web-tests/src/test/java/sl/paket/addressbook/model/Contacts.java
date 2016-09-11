@@ -28,7 +28,6 @@ public class Contacts  extends ForwardingSet<ContactData> {
         Contacts contacts = new Contacts(this);
         contacts.add(contact);
         return contacts;
-
     }
 
     public Contacts without(ContactData contact) {

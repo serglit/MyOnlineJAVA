@@ -1,10 +1,32 @@
- test 0;header 0;footer 0
- test 1;header 1;footer 1
- test 2;header 2;footer 2
- test 3;header 3;footer 3
- test 4;header 4;footer 4
- test 5;header 5;footer 5
- test 6;header 6;footer 6
- test 7;header 7;footer 7
- test 8;header 8;footer 8
- test 9;header 9;footer 9
+<list>
+  <sl.paket.addressbook.model.GroupData>
+    <id>2147483647</id>
+    <name>Group 0</name>
+    <header>header 0</header>
+    <footer>footer 0</footer>
+  </sl.paket.addressbook.model.GroupData>
+  <sl.paket.addressbook.model.GroupData>
+    <id>2147483647</id>
+    <name>Group 1</name>
+    <header>header 1</header>
+    <footer>footer 1</footer>
+  </sl.paket.addressbook.model.GroupData>
+  <sl.paket.addressbook.model.GroupData>
+    <id>2147483647</id>
+    <name>Group 2</name>
+    <header>header 2</header>
+    <footer>footer 2</footer>
+  </sl.paket.addressbook.model.GroupData>
+  <sl.paket.addressbook.model.GroupData>
+    <id>2147483647</id>
+    <name>Group 3</name>
+    <header>header 3</header>
+    <footer>footer 3</footer>
+  </sl.paket.addressbook.model.GroupData>
+  <sl.paket.addressbook.model.GroupData>
+    <id>2147483647</id>
+    <name>Group 4</name>
+    <header>header 4</header>
+    <footer>footer 4</footer>
+  </sl.paket.addressbook.model.GroupData>
+</list>

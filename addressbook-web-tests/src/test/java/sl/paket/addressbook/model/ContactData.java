@@ -1,8 +1,12 @@
 package sl.paket.addressbook.model;
 
-import java.io.File;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
 
+import java.io.File;
+@XStreamAlias("contact")
 public class ContactData {
+    @XStreamOmitField
     private int id = Integer.MAX_VALUE;
     private String firstName;
     private String lastName;
@@ -11,6 +15,11 @@ public class ContactData {
     private String phoneMobile;
     private String phoneWork;
     private String emailAddress;
+    private String emailAddress1;
+    private String emailAddress2;
+    private String allPhones;
+    private String allEmails;
+    private File photo;
 
     public File getPhoto() {
         return photo;
@@ -21,11 +30,7 @@ public class ContactData {
         return this;
     }
 
-    private String emailAddress1;
-    private String emailAddress2;
-    private String allPhones;
-    private String allEmails;
-    private File photo;
+
 
     @Override
     public boolean equals(Object o) {
@@ -75,14 +80,15 @@ public class ContactData {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", addressName='" + addressName + '\'' +
-                ", phoneHome='" + phoneHome + '\'' +
-                ", phoneMobile='" + phoneMobile + '\'' +
-                ", phoneWork='" + phoneWork + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
-                ", emailAddress1='" + emailAddress1 + '\'' +
-                ", emailAddress2='" + emailAddress2 + '\'' +
-                ", allPhones='" + allPhones + '\'' +
-                ", allEmails='" + allEmails + '\'' +
+                ", phoneHome='" + phoneHome + '\'' +
+            //    ", phoneMobile='" + phoneMobile + '\'' +
+            //    ", phoneWork='" + phoneWork + '\'' +
+
+             //   ", emailAddress1='" + emailAddress1 + '\'' +
+             //   ", emailAddress2='" + emailAddress2 + '\'' +
+             //   ", allPhones='" + allPhones + '\'' +
+             //   ", allEmails='" + allEmails + '\'' +
                 '}';
     }
 
