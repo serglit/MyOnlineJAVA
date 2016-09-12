@@ -7,15 +7,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import sl.paket.addressbook.appmanager.ApplicationManager;
 
+import static java.lang.System.getProperty;
+
 /**
  * Created by serglit on 29.07.16.
  */
 public class TestBase {
 
-    protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
+    protected static  ApplicationManager app;
 
     @BeforeSuite
     public void setUp() throws Exception {
+        app = new ApplicationManager(System.getProperty("browser", BrowserType.CHROME));
         app.init();
     }
 
