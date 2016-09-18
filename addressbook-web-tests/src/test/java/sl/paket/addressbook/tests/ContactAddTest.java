@@ -74,14 +74,15 @@ public class ContactAddTest extends TestBase {
 
 
 
-    @Test (enabled = false)
+    @Test (enabled = true)
     public void createContact() {
 
         app.goTo().contactPage();
-        Contacts before = app.contact().alll();
+        Contacts before = app.db().contacts();
         File photo = new File("src/test/resources/woof.gif");
         ContactData contact = new ContactData()
-                .withFirstName("First").withLastName("Last")
+                .withFirstName("First")
+                .withLastName("Last")
                 .withAddressName("123 Blossom ave")
                 .withPhoneHome("981283919")
                 .withPhoneMobile("+798728734812341")
@@ -91,9 +92,9 @@ public class ContactAddTest extends TestBase {
 
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size()+1));
-        Contacts after = app.contact().alll();
-      //   assertThat(after, equalTo(
-      //           before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+        Contacts after = app.db().contacts();
+         assertThat(after, equalTo(
+                 before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
 
 
          assertThat(after, equalTo(before.withAdded(contact)));
