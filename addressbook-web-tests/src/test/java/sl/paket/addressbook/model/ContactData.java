@@ -3,36 +3,66 @@ package sl.paket.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
+
+@Entity
+@Table (name = "addressbook")
 @XStreamAlias("contact")
 public class ContactData {
-    @XStreamOmitField
-    private int id = Integer.MAX_VALUE;
-    @Expose
+    // @XStreamOmitField
+
+    @Id
+    @Column (name = "id")
+    private int id ;
+
+    @Column (name = "firstname")
     private String firstName;
-    @Expose
+
+    @Column (name = "lastname")
     private String lastName;
-    @Expose
+
+    @Column (name = "address")
+    @Type(type = "text")
     private String addressName;
-    @Expose
+
+    @Column (name = "home")
+    @Type(type = "text")
     private String phoneHome;
+
+    @Column (name = "mobile")
+    @Type(type = "text")
     private String phoneMobile;
+
+    @Column (name = "work")
+    @Type(type = "text")
     private String phoneWork;
-    @Expose
+
+    @Column (name = "email")
+    @Type(type = "text")
     private String emailAddress;
-    private String emailAddress1;
+
+   @Transient
+   private String emailAddress1;
+    @Transient
     private String emailAddress2;
+    @Transient
     private String allPhones;
+    @Transient
     private String allEmails;
-    private File photo;
+
+    @Column (name = "photo")
+    @Type(type = "text")
+    private String photo;
 
     public File getPhoto() {
-        return photo;
+        return  new File(photo);
     }
 
     public ContactData withPhoto (File photo) {
-        this.photo = photo;
+        this.photo = photo.getPath();
         return this;
     }
 
@@ -88,8 +118,8 @@ public class ContactData {
                 ", addressName='" + addressName + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", phoneHome='" + phoneHome + '\'' +
-            //    ", phoneMobile='" + phoneMobile + '\'' +
-            //    ", phoneWork='" + phoneWork + '\'' +
+                ", phoneMobile='" + phoneMobile + '\'' +
+                ", phoneWork='" + phoneWork + '\'' +
 
              //   ", emailAddress1='" + emailAddress1 + '\'' +
              //   ", emailAddress2='" + emailAddress2 + '\'' +

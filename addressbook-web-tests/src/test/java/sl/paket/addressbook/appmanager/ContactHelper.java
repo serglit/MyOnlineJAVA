@@ -87,7 +87,7 @@ public class ContactHelper extends HelperBase {
         fillUpTextFields(contact);
         updateForm();
         returnToHomePage();
-        //contactCache = null;
+        contactCache = null;
     }
 
     public void deleteC(ContactData contact) {
