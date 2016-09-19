@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/MantisTests/MantisTests.iml" filepath="$PROJECT_DIR$/MantisTests/MantisTests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/MyOnlineJAVA.iml" filepath="$PROJECT_DIR$/.idea/MyOnlineJAVA.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mysandboxx.iml" filepath="$PROJECT_DIR$/.idea/modules/Mysandboxx.iml" />
       <module fileurl="file://$PROJECT_DIR$/addressbook-web-tests/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/addressbook-web-tests/addressbook-web-tests.iml" />
