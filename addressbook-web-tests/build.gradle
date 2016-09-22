@@ -18,7 +18,7 @@ dependencies {
 
 
 }
-test testGroups(type:Test) {
+task testGroups(type:Test) {
     useTestNG{
         suites 'src/test/resources/testng-groups.xml'
     }
@@ -32,7 +32,7 @@ test testGroups(type:Test) {
         systemProperty 'verifyUI', "${verifyUI}"
     }
 }
-test testContacts(type:Test) {
+task testContacts(type:Test) {
         useTestNG {
             suites 'src/test/resources/testng-contacts.xml'
         }
