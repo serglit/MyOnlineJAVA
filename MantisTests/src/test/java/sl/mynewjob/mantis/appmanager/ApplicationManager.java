@@ -44,7 +44,7 @@ public class ApplicationManager {
         wd.get(properties.getProperty("web.baseUrl"));
 
     }
-    
+
     public void stop() {
         wd.quit();
     }
